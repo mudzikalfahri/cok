@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const roomRoute = require("./routes/room");
+const roomRoute = require("./routes/rooms");
+const authRoute = require("./routes/auth");
 dotenv.config();
 app.use(express.json());
 
@@ -12,5 +13,6 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/rooms", roomRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(8000);

@@ -4,11 +4,11 @@ const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    profilImage: { type: String },
-    gameList: { type: Array },
-    roomJoined: { type: Array },
-    desc: { type: String },
     password: { type: String, required: true },
+    profileImage: { type: String, default: "" },
+    gameList: { type: Array, default: [] },
+    roomJoined: { type: Array, default: [] },
+    bio: { type: String, default: "" },
   },
   { timestamps: true }
 );

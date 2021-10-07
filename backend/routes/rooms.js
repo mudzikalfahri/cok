@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//remove
 router.delete("/:id", async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
@@ -26,6 +27,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+//join the room
 router.post("/:id", async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
