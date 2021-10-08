@@ -5,12 +5,11 @@ const RoomSchema = new mongoose.Schema(
     title: { type: String, required: true },
     img: { type: String },
     ownerId: { type: String },
-    role: { type: Array, required: true },
-    member: { type: Array, required: true },
+    role: { type: Array, required: true, default: [] },
+    member: { type: Array, required: true, default: [] },
     desc: { type: String },
-    game: { type: String, required: true },
-    isFull: { type: Boolean, default: false },
-    slot: { type: Number, required: true },
+    game: { type: String, required: true, default: "" },
+    slot: { type: Number, required: true, default: 4 },
   },
   { timestamps: true }
 );
