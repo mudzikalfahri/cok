@@ -26,4 +26,19 @@ router.put("/:id", verifyTokenUser, async (req, res) => {
     res.status(500).json(err);
   }
 });
-232;
+
+router.delete("/:id", verifyTokenUser, async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.params.id);
+    if (currentUser.username === req.body.username) {
+      await currentUser.deleteOne();
+      res.status(200).json("account has been deleted");
+    } else {
+      res.status(403).json("invalid credentials");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;

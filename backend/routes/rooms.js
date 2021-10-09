@@ -1,6 +1,38 @@
 const router = require("express").Router();
 const Room = require("../models/Room");
+const User = require("../models/User");
 const { verifyToken } = require("./verify");
+
+//get all rooms
+router.get("/", async (req, res) => {
+  try {
+    const allRooms = await Room.find();
+    res.status(200).json(allRooms);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//get room by id
+router.get("/:id", async (req, res) => {
+  try {
+    const room = await Room.findById(req.params.id);
+    res.status(200).json(room);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//get user's room
+router.get("/profile/:userId", async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.params.userId);
+    const userRoom = await Room.find({ ownerId: currentUser._id });
+    res.status(200).json(userRoom);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 //create
 router.post("/", verifyToken, async (req, res) => {
@@ -28,6 +60,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
   }
 });
 
+//edit room
 router.put("/:id", verifyToken, async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
@@ -35,7 +68,7 @@ router.put("/:id", verifyToken, async (req, res) => {
       const updatedRoom = await Room.findByIdAndUpdate(
         req.params.id,
         {
-          $set: req.body,
+          $set: { ...req.body, member: [...room.member, ...req.body.member] },
         },
         { new: true }
       );
@@ -48,8 +81,8 @@ router.put("/:id", verifyToken, async (req, res) => {
   }
 });
 
-//join the room
-router.post("/:id", async (req, res) => {
+//join or leave the room
+router.post("/join/:id", verifyToken, async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
     if (

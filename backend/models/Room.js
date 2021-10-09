@@ -4,7 +4,7 @@ const RoomSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     img: { type: String },
-    ownerId: { type: String },
+    ownerId: { type: String, required: true },
     role: { type: Array, required: true, default: [] },
     member: { type: Array, required: true, default: [] },
     desc: { type: String },
