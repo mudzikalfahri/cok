@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 //get room by id
-router.get("/:id", async (req, res) => {
+router.get("/id/:id", async (req, res) => {
   try {
     const room = await Room.findById(req.params.id);
     res.status(200).json(room);
@@ -31,6 +31,19 @@ router.get("/profile/:userId", async (req, res) => {
     res.status(200).json(userRoom);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+//get room by game title
+router.get("/game", async (req, res) => {
+  try {
+    const gameTitle = req.query.title;
+    if (gameTitle) {
+      const titleResult = await Room.find({ game: gameTitle });
+      res.status(200).json(titleResult);
+    }
+  } catch (err) {
+    res.status(401).json(err);
   }
 });
 
