@@ -15,6 +15,12 @@ module.exports = {
         green: {
           DEFAULT: "#78FF49",
         },
+        cusgray: {
+          DEFAULT: "#161616",
+        },
+        lghtgray: {
+          DEFAULT: "#252525",
+        },
       },
     },
     boxShadow: {
