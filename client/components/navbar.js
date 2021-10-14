@@ -1,8 +1,12 @@
 import React from "react";
 
-function Navbar() {
+function Navbar({ scrolled }) {
   return (
-    <div className="fixed top-0 w-full">
+    <div
+      className={`${
+        scrolled ? "bg-black backdrop-blur-xl" : ""
+      } duration-200 bg-opacity-50 backdrop-filter z-30 fixed top-0 w-full`}
+    >
       <div className="max-w-5xl mx-auto px-5 py-8 flex place-items-center justify-between">
         <div>
           <ul className="flex space-x-10 text-white text-sm">

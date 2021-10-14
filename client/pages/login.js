@@ -11,7 +11,7 @@ function Login() {
       />
       <div className="w-full absolute top-0 z-20 flex justify-center place-items-center h-screen">
         <div className="px-12 w-96 py-10 bg-cusgray rounded-xl">
-          <img src="big_logo.svg" className="mx-auto mb-4" alt="" />
+          <img src="big_logo.svg" className="mx-auto mb-6" alt="" />
           <form
             className="flex flex-col place-items-center text-white"
             action=""
@@ -24,7 +24,7 @@ function Login() {
             <input
               type="password"
               placeholder="Password"
-              className="bg-lghtgray mb-5 w-full text-xs py-3 px-4 rounded-md"
+              className="bg-lghtgray mb-7 w-full text-xs py-3 px-4 rounded-md"
             />
             <div className="flex space-x-4 w-full">
               <div className="py-2 text-center relative bottom-0 hover:bg-green duration-200 cursor-pointer text-black rounded-md text-sm font-medium w-1/2 bg-lghtgreen">
