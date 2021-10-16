@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const roomRoute = require("./routes/rooms");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const cors = require("cors");
 dotenv.config();
 app.use(express.json());
 
@@ -13,6 +14,7 @@ mongoose
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.log(err));
 
+app.use(cors());
 app.use("/api/rooms", roomRoute);
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
