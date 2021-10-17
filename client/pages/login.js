@@ -1,6 +1,16 @@
+import axios from "axios";
 import React from "react";
+import { useForm } from "../utils/hooks/form";
 
 function Login() {
+  const [field, handleField] = useForm();
+  const doLogin = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:8000/api/auth/login", field)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="w-full bg-black min-h-screen">
       <div className="absolute top-0 bg-black bg-opacity-80 h-screen w-full z-10"></div>
@@ -13,23 +23,31 @@ function Login() {
         <div className="px-12 w-96 py-10 bg-cusgray rounded-xl">
           <img src="big_logo.svg" className="mx-auto mb-6" alt="" />
           <form
+            onSubmit={doLogin}
             className="flex flex-col place-items-center text-white"
             action=""
           >
             <input
               type="text"
-              placeholder="Email"
+              onChange={handleField}
+              placeholder="Username"
+              name="username"
               className="bg-lghtgray mb-3 w-full text-xs py-3 px-4 rounded-md"
             />
             <input
               type="password"
+              onChange={handleField}
               placeholder="Password"
+              name="password"
               className="bg-lghtgray mb-7 w-full text-xs py-3 px-4 rounded-md"
             />
             <div className="flex space-x-4 w-full">
-              <div className="py-2 text-center relative bottom-0 hover:bg-green duration-200 cursor-pointer text-black rounded-md text-sm font-medium w-1/2 bg-lghtgreen">
+              <button
+                type="submit"
+                className="py-2 text-center relative bottom-0 hover:bg-green duration-200 cursor-pointer text-black rounded-md text-sm font-medium w-1/2 bg-lghtgreen"
+              >
                 Login
-              </div>
+              </button>
               <div className="py-2 relative w-1/2 bottom-0 hover:border-green duration-200 cursor-pointer text-white rounded-md text-sm font-medium text-center border border-lghtgreen">
                 Register
               </div>
