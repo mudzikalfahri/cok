@@ -49,7 +49,7 @@ router.get("/game", async (req, res) => {
 
 //create
 router.post("/", verifyToken, async (req, res) => {
-  const newRoom = new Room(req.body);
+  const newRoom = new Room({ ...req.body, ownerId: req.user.username });
   try {
     const createdRoom = await newRoom.save();
     res.status(200).json(createdRoom);

@@ -13,9 +13,9 @@ function Navbar({ scrolled }) {
             <li className="font-semibold cursor-pointer text-lghtgreen">
               Home
             </li>
-            <li className="cursor-pointer">About</li>
+            <li className="cursor-pointer">Features</li>
             <li className="cursor-pointer">Games</li>
-            <li className="cursor-pointer">Explore</li>
+            <li className="cursor-pointer">About</li>
           </ul>
         </div>
         <div className="">

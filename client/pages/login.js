@@ -1,14 +1,23 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "../utils/hooks/form";
+import { useRouter } from "next/router";
+import nookies from "nookies";
 
 function Login() {
   const [field, handleField] = useForm();
+  const router = useRouter();
   const doLogin = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:8000/api/auth/login", field)
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.data.accessToken) {
+          console.log(res.data.accessToken);
+          nookies.set(null, "token", JSON.stringify(res.data.accessToken));
+          router.push("/dashboard");
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (

@@ -4,7 +4,10 @@ export const useForm = () => {
   const [field, setField] = useState({});
   const handleChange = (event) => {
     event.preventDefault();
-    setField({ ...field, [event.target.name]: event.target.value });
+    setField({
+      ...field,
+      [event.target.name]: event.target.value?.toLowerCase(),
+    });
   };
 
   return [field, handleChange];
