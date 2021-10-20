@@ -14,7 +14,7 @@ function Login() {
       .then((res) => {
         if (res.data.accessToken) {
           console.log(res.data.accessToken);
-          nookies.set(null, "token", JSON.stringify(res.data.accessToken));
+          nookies.set(null, "token", res.data.accessToken);
           router.push("/dashboard");
         }
       })
