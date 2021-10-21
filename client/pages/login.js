@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useForm } from "../utils/hooks/form";
+import { useForm } from "../hooks/form";
 import { useRouter } from "next/router";
 import nookies from "nookies";
 
@@ -13,7 +13,7 @@ function Login() {
       .post("http://localhost:8000/api/auth/login", field)
       .then((res) => {
         if (res.data.accessToken) {
-          console.log(res.data.accessToken);
+          localStorage.setItem("user", JSON.stringify(res.data));
           nookies.set(null, "token", res.data.accessToken);
           router.push("/dashboard");
         }

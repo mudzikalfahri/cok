@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "../utils/hooks/form";
+import { useForm } from "../hooks/form";
 import nookies from "nookies";
 import axios from "axios";
 
 function Dashboard() {
   const [token, setToken] = useState("");
   const [roomData, setRoomData] = useState([]);
+  const [user, setUser] = useState({});
   useEffect(() => {
-    const accessToken = nookies.get(null, "token").token;
+    const accessToken = nookies.get(null, "user").token;
     setToken(accessToken);
+    const session = JSON.parse(localStorage.getItem("user"));
+    setUser(session);
     axios
       .get("http://localhost:8000/api/rooms")
       .then((res) => setRoomData(res.data))
@@ -18,13 +21,10 @@ function Dashboard() {
 
   const createRoom = (e) => {
     e.preventDefault();
-
     const config = {
       headers: { token: `Bearer ${token}` },
     };
-
     const bodyParameters = field;
-
     axios
       .post("http://localhost:8000/api/rooms", bodyParameters, config)
       .then((data) => console.log(data))
@@ -70,9 +70,16 @@ function Dashboard() {
           {roomData.map((room, idx) => (
             <div key={idx} className="p-4 border border-black">
               <p>{room.title}</p>
-              <p>{room.desc}</p>
-              <p>{room.game}</p>
-              <p>{room.slot}</p>
+              <p>description: {room.desc}</p>
+              <p>game: {room.game}</p>
+              <p>
+                slot: {room.member.length} / {room.slot}
+              </p>
+              {!room.member.includes(user._id) ? (
+                <button className="p-2 bg-green-100">Join Room</button>
+              ) : (
+                <button className="p-2 bg-red-100">Leave Room</button>
+              )}
             </div>
           ))}
         </div>
