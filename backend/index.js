@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const roomRoute = require("./routes/rooms");
+const vacancyRoute = require("./routes/vacancies");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const cors = require("cors");
@@ -15,7 +15,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(cors());
-app.use("/api/rooms", roomRoute);
+app.use("/api/vacancies", vacancyRoute);
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 

@@ -3,10 +3,13 @@ import { useForm } from "../hooks/form";
 import nookies from "nookies";
 import axios from "axios";
 
+import RoomArea from "../components/roomarea";
+
 function Dashboard() {
   const [token, setToken] = useState("");
   const [roomData, setRoomData] = useState([]);
   const [user, setUser] = useState({});
+
   useEffect(() => {
     const accessToken = nookies.get(null, "user").token;
     setToken(accessToken);
@@ -30,6 +33,7 @@ function Dashboard() {
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
+
   return (
     <div>
       <form onSubmit={createRoom}>
@@ -64,26 +68,7 @@ function Dashboard() {
         <button type="submit">add room</button>
       </form>
 
-      <div className="mt-20">
-        <h1>Room available</h1>
-        <div className="">
-          {roomData.map((room, idx) => (
-            <div key={idx} className="p-4 border border-black">
-              <p>{room.title}</p>
-              <p>description: {room.desc}</p>
-              <p>game: {room.game}</p>
-              <p>
-                slot: {room.member.length} / {room.slot}
-              </p>
-              {!room.member.includes(user._id) ? (
-                <button className="p-2 bg-green-100">Join Room</button>
-              ) : (
-                <button className="p-2 bg-red-100">Leave Room</button>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+      <RoomArea roomData={roomData} user={user} />
     </div>
   );
 }
