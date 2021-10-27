@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Vacancy = require("../models/Vacancy");
 const User = require("../models/User");
-const { verifyToken } = require("./verify");
+const { verifyToken, verifyCompany } = require("./verify");
 
 //get all Jobs
 router.get("/", async (req, res) => {
@@ -37,7 +37,7 @@ router.get("/search", async (req, res) => {
 });
 
 //create
-router.post("/", verifyToken, async (req, res) => {
+router.post("/", verifyCompany, async (req, res) => {
   const newVacancy = new Vacancy({
     ...req.body,
   });
@@ -65,7 +65,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
 });
 
 //edit vacancy
-router.put("/:id", verifyToken, async (req, res) => {
+router.put("/:id", verifyCompany, async (req, res) => {
   try {
     const vacancy = await Vacancy.findById(req.params.id);
     if (vacancy.postedBy === req.body.userId) {

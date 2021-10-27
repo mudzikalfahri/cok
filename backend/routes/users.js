@@ -6,24 +6,30 @@ const router = require("express").Router();
 
 //UPDATE
 router.put("/:id", verifyTokenUser, async (req, res) => {
-  if (req.body.password) {
-    req.body.password = Crypto.AES.encrypt(
-      req.body.password,
-      process.env.CRYPT_SEC
-    ).toString();
-  }
+  if (!req.body.password) res.status(401).json("please input yout password!");
 
-  try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: req.body,
-      },
-      { new: true }
-    );
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    res.status(500).json(err);
+  const dataUser = await User.findById(req.params.id);
+
+  dataPassword = Crypto.AES.decrypt(
+    dataUser.password,
+    process.env.CRYPT_SEC
+  ).toString(Crypto.enc.Utf8);
+
+  if (dataPassword === req.body.password) {
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      );
+      res.status(200).json(updatedUser);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  } else {
+    res.status(401).json("invalid password!");
   }
 });
 

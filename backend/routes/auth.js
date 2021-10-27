@@ -9,6 +9,7 @@ router.post("/register", async (req, res) => {
     ...req.body,
     username: req.body.username,
     email: req.body.email,
+    isCompany: req.body.isCompany,
     password: Crypto.AES.encrypt(
       req.body.password,
       process.env.CRYPT_SEC
@@ -43,6 +44,7 @@ router.post("/login", async (req, res) => {
       {
         id: user._id,
         username: user.username,
+        isCompany: user.isCompany,
       },
       process.env.JWT_SEC,
       { expiresIn: "1d" }

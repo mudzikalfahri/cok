@@ -16,7 +16,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenUser = (req, res, next) => {
   verifyToken(req, res, () => {
-    if (req.user.id === req.params.id) {
+    if (req.body.userId === req.user.id) {
       next();
     } else {
       res.status(403).json("You are not alowed to do that!");
@@ -24,4 +24,14 @@ const verifyTokenUser = (req, res, next) => {
   });
 };
 
-module.exports = { verifyToken, verifyTokenUser };
+const verifyCompany = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isCompany === true) {
+      next();
+    } else {
+      res.status(403).json("You are not alowed to do that!");
+    }
+  });
+};
+
+module.exports = { verifyToken, verifyTokenUser, verifyCompany };
