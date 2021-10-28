@@ -13,3 +13,7 @@
     transform: translate3d(-1692px, 0, 0); /* The image width */
   }
 }
+
+* {
+  box-sizing: border-box;
+}

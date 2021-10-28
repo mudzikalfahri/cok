@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Poppins", "sans-serif"],
-        sans: ["Montserrat", "sans-serif"],
+        serif: ["Montserrat", "sans-serif"],
+        sans: ["Poppins", "sans-serif"],
       },
       colors: {
         lghtgreen: {
@@ -24,7 +24,7 @@ module.exports = {
       },
     },
     boxShadow: {
-      lg: "0 10px 30px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      lg: "0 5px 30px -3px rgba(0, 0, 0, 0.02), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
     },
   },
   variants: {
