@@ -5,20 +5,21 @@ import MenuButton from "./menubutton";
 
 function Navbar() {
   return (
-    <div className="w-full fixed shadow-lg">
+    <div className="w-full fixed shadow-lg bg-white z-20">
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
-          <div className="flex items-center text-sm font-semibold space-x-2">
+          <div className="flex items-center text-gray-700 text-sm font-semibold space-x-2">
             <LogoIcon />
             <p>Seekers</p>
           </div>
+
           <div className="flex items-center space-x-2 ">
             <img
               src="https://images.unsplash.com/photo-1485043433441-db091a258e5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
               className="w-9 h-9 rounded-full object-cover"
             ></img>
             <div className="flex flex-col justify-between pr-3">
-              <p className="text-[12px] font-bold">Jasmine Mat</p>
+              <p className="text-[12px] text-gray-700 font-bold">Jasmine Mat</p>
               <p className="text-[10px] text-gray-400">Seek a Job</p>
             </div>
             <ArrowDown />
@@ -28,7 +29,7 @@ function Navbar() {
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
           <div className="w-2/6">
-            <div className="flex space-x-3 items-center text-xs rounded-3xl p-3">
+            <div className="flex space-x-3 items-center text-xs rounded-3xl py-3">
               <svg
                 className="w-5 h-5 text-gray-500"
                 fill="none"
@@ -73,10 +74,8 @@ function Navbar() {
               </div>
               <ArrowDown />
             </div>
-
             <MenuButton name="Job Type" />
-
-            <MenuButton name="Job Type" />
+            <MenuButton name="Specialization" />
           </div>
         </div>
       </div>
