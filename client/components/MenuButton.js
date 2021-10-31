@@ -1,5 +1,4 @@
-import React from "react";
-import ArrowDown from "./icons/ArrowDown";
+import ArrowDown from "./icons/arrowdown";
 
 function MenuButton({ name }) {
   return (

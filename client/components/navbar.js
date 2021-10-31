@@ -1,6 +1,5 @@
-import React from "react";
-import ArrowDown from "./icons/ArrowDown";
-import LogoIcon from "./icons/LogoIcon";
+import ArrowDown from "./icons/arrowdown";
+import LogoIcon from "./icons/logoicon";
 import MenuButton from "./menubutton";
 
 function Navbar() {

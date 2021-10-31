@@ -1,6 +1,6 @@
-import ArrowDown from "../components/icons/ArrowDown";
-import JobCard from "../components/JobCard";
-import Navbar from "../components/Navbar";
+import ArrowDown from "../components/icons/arrowdown";
+import JobCard from "../components/jobcard";
+import Navbar from "../components/navbar";
 
 export default function Home() {
   return (
@@ -12,6 +12,22 @@ export default function Home() {
             <h2 className="font-semibold text-lg border-b border-gray-50 mb-3 pb-3.5">
               Details
             </h2>
+            <div className="flex flex-col pt-3">
+              <div className="flex flex-col">
+                <div className="">Job Regulations</div>
+                <div className="">
+                  <div className="text-xs font-medium duration-100 hover:bg-blue-100/20 py-2 px-4 rounded-xl">
+                    Full time
+                  </div>
+                  <div className="text-xs font-medium duration-100 hover:bg-blue-100/20 py-2 px-4 rounded-xl">
+                    Part time
+                  </div>
+                  <div className="text-xs font-medium duration-100 hover:bg-blue-100/20 py-2 px-4 rounded-xl">
+                    Freelance
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-span-3">
             <div className="flex justify-between items-center border-b border-gray-50 mb-3 pb-1.5 ">

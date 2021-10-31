@@ -1,5 +1,3 @@
-import React from "react";
-
 function JobCard() {
   return (
     <div className="p-7 flex mx-2 my-3 flex-col bg-blue-100/20 rounded-2xl space-y-3">
