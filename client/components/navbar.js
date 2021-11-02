@@ -2,9 +2,13 @@ import ArrowDown from "./icons/arrowdown";
 import LogoIcon from "./icons/logoicon";
 import MenuButton from "./menubutton";
 
-function Navbar() {
+function Navbar({ style }) {
   return (
-    <div className="w-full fixed shadow-lg bg-white z-20">
+    <div
+      className={`${
+        style ? "-top-20" : "top-0"
+      } w-full fixed shadow-lg bg-white z-30 duration-100`}
+    >
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center text-gray-700 text-sm font-semibold space-x-2">

@@ -29,7 +29,7 @@ function JobCard() {
         Developers to join our team for a long term
       </p>
       <div className="flex items-center text-[11px] space-x-2 justify-between">
-        <button className="flex items-center justify-center py-2.5 bg-blue-500 text-white rounded-xl w-1/2 bg-blue">
+        <button className="flex items-center hover:bg-blue-600 duration-100 justify-center py-2.5 bg-blue-500 text-white rounded-xl w-1/2 bg-blue">
           Apply
         </button>
         <button className="flex items-center justify-center py-2.5 border border-gray-500 text-gray-700 rounded-xl w-1/2 bg-blue">

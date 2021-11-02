@@ -10,13 +10,13 @@ function LeftSideDetail() {
         <div className="pb-5">
           <div className="mb-3 font-semibold">Job Regulations</div>
           <div className="">
-            <div className="text-xs cursor-pointer font-medium duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
+            <div className="text-xs cursor-pointer duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
               Full time
             </div>
-            <div className="text-xs cursor-pointer font-medium duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
+            <div className="text-xs cursor-pointer duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
               Part time
             </div>
-            <div className="text-xs cursor-pointer font-medium duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
+            <div className="text-xs cursor-pointer duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
               Freelance
             </div>
           </div>
