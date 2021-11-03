@@ -13,7 +13,6 @@ export default function Find() {
   }, [last]);
   const handleScroll = () => {
     let currentScrollY = window.scrollY;
-    console.log(last);
     if (currentScrollY > last) {
       setStyle(true);
     } else {
@@ -21,6 +20,7 @@ export default function Find() {
     }
     setLast(currentScrollY);
   };
+  
   return (
     <>
       <Navbar style={style} />

@@ -7,7 +7,7 @@ function Navbar({ style }) {
     <div
       className={`${
         style ? "-top-20" : "top-0"
-      } w-full fixed shadow-lg bg-white z-30 duration-100`}
+      } w-full fixed shadow-lg bg-white z-30 ease-in-out duration-300`}
     >
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
@@ -15,7 +15,13 @@ function Navbar({ style }) {
             <LogoIcon />
             <p>Seekers</p>
           </div>
-
+          <div className="flex items-center space-x-4">
+            <div className="text-xs font-medium text-gray-700 border-b-2 px-4 border-blue-500 py-8">
+              Seek
+            </div>
+            <div className="text-xs text-gray-400 px-4 py-8">Post a Job</div>
+            <div className="text-xs text-gray-400 px-4 py-8">Saved</div>
+          </div>
           <div className="flex items-center space-x-2 ">
             <img
               src="https://images.unsplash.com/photo-1485043433441-db091a258e5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
