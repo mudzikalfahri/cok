@@ -1,5 +1,5 @@
+import { ChevronDownIcon } from "@heroicons/react/solid";
 import React from "react";
-import ArrowDown from "./icons/arrowdown";
 import JobCard from "./jobcard";
 
 function RightSideFind() {
@@ -14,7 +14,7 @@ function RightSideFind() {
           <p className="text-gray-400 mr-2">Sort by</p>
           <button className="font-medium text-blue-500 flex items-center">
             Last posted
-            <ArrowDown />
+            <ChevronDownIcon className="w-5 h-5 text-blue-400" />
           </button>
         </div>
       </div>

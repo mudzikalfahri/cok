@@ -19,6 +19,9 @@ function LeftSideDetail() {
             <div className="text-xs cursor-pointer duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
               Freelance
             </div>
+            <div className="text-xs cursor-pointer duration-100 hover:text-blue-500 text-gray-400 py-2 px-4 rounded-xl">
+              Internship
+            </div>
           </div>
         </div>
         <div className="pb-5">

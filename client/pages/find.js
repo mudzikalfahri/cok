@@ -20,7 +20,7 @@ export default function Find() {
     }
     setLast(currentScrollY);
   };
-  
+
   return (
     <>
       <Navbar style={style} />

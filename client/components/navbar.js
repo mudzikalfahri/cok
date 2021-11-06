@@ -1,6 +1,6 @@
-import ArrowDown from "./icons/arrowdown";
-import LogoIcon from "./icons/logoicon";
 import MenuButton from "./menubutton";
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import { SearchCircleIcon } from "@heroicons/react/solid";
 
 function Navbar({ style }) {
   return (
@@ -11,16 +11,23 @@ function Navbar({ style }) {
     >
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
-          <div className="flex items-center text-gray-700 text-sm font-semibold space-x-2">
-            <LogoIcon />
-            <p>Seekers</p>
+          <div className="flex items-center text-gray-700 text-sm font-semibold space-x-1">
+            <SearchCircleIcon className="w-6 h-6 text-blue-400" />
+            <p>Jobhunter</p>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="text-xs font-medium text-gray-700 border-b-2 px-4 border-blue-500 py-8">
+            <div className="text-xs cursor-pointer font-medium text-gray-700 border-b-2 px-4 border-blue-500 py-8">
               Seek
             </div>
-            <div className="text-xs text-gray-400 px-4 py-8">Post a Job</div>
-            <div className="text-xs text-gray-400 px-4 py-8">Saved</div>
+            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
+              Post a Job
+            </div>
+            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
+              Saved
+            </div>
+            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
+              Applied
+            </div>
           </div>
           <div className="flex items-center space-x-2 ">
             <img
@@ -31,7 +38,7 @@ function Navbar({ style }) {
               <p className="text-[12px] text-gray-700 font-bold">Jasmine Mat</p>
               <p className="text-[10px] text-gray-400">Seek a Job</p>
             </div>
-            <ArrowDown />
+            <ChevronDownIcon className="w-5 h-5 text-blue-400" />
           </div>
         </div>
       </div>
@@ -81,7 +88,7 @@ function Navbar({ style }) {
                   className="outline-none first-letter:capitalize"
                 />
               </div>
-              <ArrowDown />
+              <ChevronDownIcon className="w-5 h-5 text-blue-400" />
             </div>
             <MenuButton name="Job Type" />
             <MenuButton name="Specialization" />
