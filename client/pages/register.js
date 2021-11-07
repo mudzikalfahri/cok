@@ -1,33 +1,39 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
-import { useForm } from "../utils/form";
+import useForm from "../hooks/form";
 import { SearchCircleIcon } from "@heroicons/react/solid";
-import Dropdown from "react-dropdown";
+import Select from "react-select";
 import "react-dropdown/style.css";
 
 const provincies = [
-  "Banten",
-  "Bandung",
-  "Bogor",
-  "Jakarta",
-  "Semarang",
-  "Yogyakarta",
-  "Surabaya",
+  { value: "Banten", label: "Banten" },
+  { value: "bandung", label: "Bandung" },
+  { value: "Bogor", label: "Bogor" },
+  { value: "Jakarta", label: "Jakarta" },
+  { value: "Semarang", label: "Semarang" },
+  { value: "Yogyakarta", label: "Yogyakarta" },
+  { value: "Surabaya", label: "Surabaya" },
 ];
 
 function Register() {
+  const [isChecked, setIsChecked] = useState(false);
+  const [location, setLocation] = useState("");
   const [field, handleField] = useForm();
   const doRegister = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/auth/register", field)
+      .post("http://localhost:8000/api/auth/register", {
+        ...field,
+        isCompany: isChecked,
+        location: location,
+      })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   return (
     <div className="w-full background bg-cover filter min-h-screen">
-      <div className="w-full flex justify-end place-items-center">
-        <div className="px-8 md:px-12 border flex flex-col py-10 md:py-20 min-h-screen md:w-1/3 border-gray-100 bg-white mt-52 md:mt-0 rounded-2xl md:rounded-tr-none rounded-br-none shadow-xl">
+      <div className="w-full flex justify-end place-items-center h-screen">
+        <div className="px-8 overflow-y-auto md:px-12 flex flex-col pt-10 pb-20 md:h-screen md:w-1/3 border-gray-100 bg-white mt-64 md:mt-0 rounded-2xl rounded-bl-none md:rounded-bl-2xl md:rounded-tr-none rounded-br-none shadow-xl">
           <div className="flex text-center flex-col items-center text-gray-700 text-sm font-semibold mb-6">
             <SearchCircleIcon className="w-10 h-10 text-blue-500" />
             <p className="text-gray-500 text-xs font-medium">Job Hunter</p>
@@ -89,27 +95,33 @@ function Register() {
                 Register as company account
               </div>
               <label className="switch">
-                <input type="checkbox" />
+                <input
+                  checked={isChecked}
+                  onChange={() => setIsChecked((prev) => !prev)}
+                  type="checkbox"
+                />
                 <span className="slider round"></span>
               </label>
             </div>
-            <input
-              type="text"
-              onChange={handleField}
-              name="companyname"
-              required
-              placeholder="Company Name"
-              className="bg-white border-gray-300 border-b mb-5 w-full text-xs py-3 px-4"
-            />
-            <Dropdown
-              className="text-xs rounded-md w-full mb-6"
-              controlClassName=""
-              placeholderClassName="px-2 rounded-md"
-              menuClassName="px-2 py-2"
-              arrowClassName=""
-              options={provincies}
-              placeholder="Office Location"
-            />
+            {isChecked && (
+              <div className="w-full duration-200">
+                <input
+                  disabled={!isChecked}
+                  type="text"
+                  onChange={handleField}
+                  name="company"
+                  required
+                  placeholder="Company Name"
+                  className="bg-white disabled:cursor-not-allowed border-gray-300 outline-none border-b mb-5 w-full text-xs py-3 px-4"
+                />
+                <Select
+                  placeholder="Company Location"
+                  className="w-full mb-5 text-xs"
+                  onChange={(e) => setLocation(e.value)}
+                  options={provincies}
+                />
+              </div>
+            )}
             <p className="text-xs text-gray-500 text-center mb-4">
               By selecting register button, I have read and agree to
               Jobhunter.com's{" "}

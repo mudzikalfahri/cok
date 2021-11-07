@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useForm = () => {
+const useForm = () => {
   const [field, setField] = useState({});
   const handleChange = (event) => {
     console.log(field);
@@ -12,3 +12,5 @@ export const useForm = () => {
 
   return [field, handleChange];
 };
+
+export default useForm;
