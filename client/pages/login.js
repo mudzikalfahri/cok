@@ -4,7 +4,6 @@ import useForm from "../hooks/form";
 import { useRouter } from "next/router";
 import nookies from "nookies";
 import { SearchCircleIcon } from "@heroicons/react/solid";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
 function Login() {
