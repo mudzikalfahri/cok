@@ -40,7 +40,7 @@ function PostModal({ close }) {
           >
             Post Now
             <span>
-              <CloudUploadIcon className="ml-2 w-5 h-5 text-white" />
+              <CloudUploadIcon className="ml-2 w-4 h-4 text-white" />
             </span>
           </button>
         </form>

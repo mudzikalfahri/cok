@@ -1,6 +1,7 @@
 import MenuButton from "./menubutton";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { SearchCircleIcon } from "@heroicons/react/solid";
+import TopMenuNav from "./topmenunav";
 
 function Navbar({ style }) {
   return (
@@ -15,20 +16,7 @@ function Navbar({ style }) {
             <SearchCircleIcon className="w-6 h-6 text-blue-400" />
             <p>Jobhunter</p>
           </div>
-          <div className="flex items-center space-x-4">
-            <div className="text-xs cursor-pointer font-medium text-gray-700 border-b-2 px-4 border-blue-500 py-8">
-              Seek
-            </div>
-            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
-              Post a Job
-            </div>
-            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
-              Saved
-            </div>
-            <div className="text-xs cursor-pointer text-gray-400 px-4 py-8">
-              Applied
-            </div>
-          </div>
+          <TopMenuNav />
           <div className="flex items-center space-x-2 ">
             <img
               src="https://images.unsplash.com/photo-1485043433441-db091a258e5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
