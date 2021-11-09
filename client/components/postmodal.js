@@ -11,7 +11,7 @@ function PostModal({ close }) {
         >
           <XIcon className="w-4 h-4 text-gray-400" />
         </button>
-        <h1 className="font-medium mt-4 flex items-center">
+        <h1 className="font-medium mt-2 flex items-center">
           Post a Job{" "}
           <span>
             <SparklesIcon className="ml-1 w-4 h-4 text-blue-500" />

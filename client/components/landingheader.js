@@ -11,7 +11,7 @@ function LandingHeader({ style }) {
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-1">
           <SearchCircleIcon className="w-7 h-7 text-blue-500" />
-          <p className="font-semibold">Jobhunter</p>
+          <p className="font-semibold font-serif">Jobhunter</p>
         </div>
         <ul className="flex text-lg font-medium text-gray-500 items-center space-x-6">
           <li className="hover:text-gray-400 duration-100 cursor-pointer">

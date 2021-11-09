@@ -3,7 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 import { SearchCircleIcon } from "@heroicons/react/solid";
 import TopMenuNav from "./topmenunav";
 
-function Navbar({ style }) {
+function Navbar({ style, setModalOpen }) {
   return (
     <div
       className={`${
@@ -13,10 +13,10 @@ function Navbar({ style }) {
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center text-gray-700 text-sm font-semibold space-x-1">
-            <SearchCircleIcon className="w-6 h-6 text-blue-400" />
-            <p>Jobhunter</p>
+            <SearchCircleIcon className="w-6 h-6 text-blue-500" />
+            <p className="font-serif">Jobhunter</p>
           </div>
-          <TopMenuNav />
+          <TopMenuNav setModalOpen={setModalOpen} />
           <div className="flex items-center space-x-2 ">
             <img
               src="https://images.unsplash.com/photo-1485043433441-db091a258e5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"

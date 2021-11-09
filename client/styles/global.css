@@ -63,7 +63,7 @@ input:checked + .slider:before {
   background-image: url(/bglanding.jpg);
   background-size: cover;
   filter: brightness(60%);
-  position: relative;
+  position: fixed;
 }
 
 /* ::-webkit-scrollbar {
