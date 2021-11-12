@@ -27,13 +27,7 @@ export default function Home() {
     <>
       <div className="w-full min-h-screen relative text-gray-800">
         <LandingHeader style={style} />
-        <div
-          style={{
-            width: "100%",
-            height: "100vh",
-          }}
-          className="landingbg"
-        ></div>
+        <div className="landingbg"></div>
         <div className="absolute w-full top-0 text-white">
           <div
             className={`h-screen w-full mx-auto text-center font-medium flex justify-center items-center text-5xl leading-tight`}
