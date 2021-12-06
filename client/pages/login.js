@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import useForm from "../hooks/form";
+import useForm from "../hooks/useForm";
 import { useRouter } from "next/router";
 import nookies from "nookies";
 import { SearchCircleIcon } from "@heroicons/react/solid";

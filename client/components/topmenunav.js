@@ -1,8 +1,7 @@
 import { useState } from "react";
 import React from "react";
-const menus = ["Seek", "Post a Job", "Saved", "Applied"];
 
-function TopMenuNav({ setModalOpen }) {
+function TopMenuNav({ setModalCreate }) {
   const [active, setActive] = useState(0);
   return (
     <div className={`flex items-center relative`}>
@@ -19,7 +18,7 @@ function TopMenuNav({ setModalOpen }) {
       <button
         onClick={() => {
           setActive(1 * 80);
-          setModalOpen(true);
+          setModalCreate(true);
         }}
         className={`text-xs w-[80px] flex justify-center duration-75 cursor-pointer py-8  ${
           active / 80 === 1
