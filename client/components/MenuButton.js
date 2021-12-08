@@ -6,8 +6,8 @@ function MenuButton({ name }) {
   const toggle = () => setIsEnter((prev) => !prev);
   return (
     <div
-      onMouseEnter={toggle}
-      onMouseLeave={toggle}
+      onMouseLeave={() => setIsEnter(false)}
+      onClick={toggle}
       className="flex-1 relative"
     >
       <div

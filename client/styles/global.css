@@ -39,6 +39,9 @@
   transition: 0.4s;
 }
 
+.detailed::-webkit-scrollbar {
+  width: 0px;
+}
 input:checked + .slider {
   background-color: #2196f3;
 }
