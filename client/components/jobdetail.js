@@ -1,15 +1,13 @@
 import React from "react";
 import { XIcon } from "@heroicons/react/solid";
+import { useTheme } from "../utils/context";
 
-function JobDetail({ close }) {
+function JobDetail() {
   return (
     <div className="w-full detailed h-screen bg-black bg-opacity-25 overflow-y-auto fixed top-0 z-30 flex justify-center">
       <div className="w-1/3 text-gray-700 text-center py-32 ">
         <div className="bg-gray-200 overflow-hidden shadow-xl relative rounded-xl pt-32">
-          <button
-            onClick={close}
-            className="absolute p-2 m-4 rounded-full duration-100 bg-white active:bg-gray-100 top-0 right-0 ml-auto"
-          >
+          <button className="absolute p-2 m-4 rounded-full duration-100 bg-white active:bg-gray-100 top-0 right-0 ml-auto">
             <XIcon className="w-4 h-4 text-gray-400" />
           </button>
           {/* detail job */}

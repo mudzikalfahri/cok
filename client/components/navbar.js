@@ -32,7 +32,7 @@ function Navbar({ style, setModalCreate }) {
       <div className="w-full border-b border-gray-100 ">
         <div className="max-w-6xl mx-auto h-20 flex items-center justify-between">
           <div className="w-2/6">
-            <div className="flex space-x-3 items-center text-xs rounded-3xl py-3">
+            <div className="flex space-x-3 items-center text-xs rounded-3xl ">
               <svg
                 className="w-5 h-5 text-gray-500"
                 fill="none"
@@ -50,7 +50,7 @@ function Navbar({ style, setModalCreate }) {
               <input
                 type="text"
                 placeholder="Search a Job"
-                className="outline-none first-letter:capitalize w-2/3"
+                className="outline-none py-3 px-1 focus:border-b border-gray-200 duration-200 first-letter:capitalize w-2/3"
               />
             </div>
           </div>

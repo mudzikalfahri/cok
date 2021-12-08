@@ -2,7 +2,7 @@ import React from "react";
 
 function LeftSideDetail() {
   return (
-    <div className="col-span-1">
+    <div className="col-span-1 lg:inline hidden">
       <h2 className="font-semibold text-lg border-b border-gray-50 mb-3 pb-3.5">
         Details
       </h2>
