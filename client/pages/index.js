@@ -2,12 +2,16 @@ import { SearchCircleIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
 import LandingHeader from "../components/landingheader";
 import { useScroll } from "../hooks/useScroll";
+import Head from "next/head";
 
 export default function Home() {
   const { ofset, style } = useScroll();
 
   return (
     <>
+      <Head>
+        <title>Jobhunter - Find your dream job</title>
+      </Head>
       <div className="w-full min-h-screen relative text-gray-700">
         <LandingHeader style={style} />
         <div className="landingbg"></div>
@@ -82,12 +86,45 @@ export default function Home() {
             </div>
           </div>
           <footer className="bg-gray-100">
-            <div className="text-gray-700 max-w-7xl mx-auto bg-gray-100 grid grid-cols-6">
-              <div className="logo"></div>
-              <div className="follow"></div>
-              <div className="about"></div>
-              <div className="sub"></div>
-              <div className="others"></div>
+            <div className="text-gray-700 pt-16 pb-20 px-10 max-w-7xl mx-auto bg-gray-100 grid grid-cols-6">
+              <div className="logo col-span-2">
+                <img src="/jobhunter.png" alt="" />
+              </div>
+              <div className="follow">
+                <p className="font-medium mb-4 text-lg">Follow Us On</p>
+                <ul className="flex flex-col space-y-2 text-sm text-gray-500">
+                  <li>Facebook</li>
+                  <li>Twitter</li>
+                  <li>Instagram</li>
+                  <li>Youtube</li>
+                </ul>
+              </div>
+              <div className="follow">
+                <p className="font-medium mb-4 text-lg">About Us</p>
+                <ul className="flex flex-col space-y-2 text-sm text-gray-500">
+                  <li>How to Use</li>
+                  <li>Contact</li>
+                  <li>About</li>
+                  <li>Company</li>
+                </ul>
+              </div>
+              <div className="follow">
+                <p className="font-medium mb-4 text-lg">Subscription</p>
+                <ul className="flex flex-col space-y-2 text-sm text-gray-500">
+                  <li>Price</li>
+                  <li>Payment Method</li>
+                  <li>Paylater</li>
+                </ul>
+              </div>
+              <div className="follow">
+                <p className="font-medium mb-4 text-lg">Others</p>
+                <ul className="flex flex-col space-y-2 text-sm text-gray-500">
+                  <li>Blog</li>
+                  <li>Privacy Policy</li>
+                  <li>Terms Conditions</li>
+                  <li>Customer Service</li>
+                </ul>
+              </div>
             </div>
           </footer>
         </div>

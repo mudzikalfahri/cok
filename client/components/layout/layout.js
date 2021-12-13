@@ -4,6 +4,7 @@ import PostModal from "../postmodal";
 import { useScroll } from "../../hooks/useScroll";
 import JobDetail from "../jobdetail";
 import { useTheme } from "../../utils/context";
+import Head from "next/head";
 
 export default function Layout({ children }) {
   const { style } = useScroll();
@@ -11,6 +12,9 @@ export default function Layout({ children }) {
   const { openModalDetail } = useTheme().state;
   return (
     <>
+      <Head>
+        <title>Jobhunter - Find a Job</title>
+      </Head>
       <Navbar style={style} setModalCreate={setModalCreate} />
       <div className="w-full min-h-screen overflow-hidden text-gray-800">
         {modalCreate && <PostModal close={() => setModalCreate(false)} />}
